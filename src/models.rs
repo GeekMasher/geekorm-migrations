@@ -9,6 +9,8 @@ pub struct Users {
     #[geekorm(unique)]
     pub username: String,
 
+    pub email: Option<String>,
+
     #[geekorm(new = "UserType::User")]
     pub user_type: UserType,
 
@@ -25,6 +27,16 @@ pub struct Users {
     // #[serde(skip)]
     // pub sessions: Vec<Sessions>,
 }
+
+pub const USERS: [&str; 7] = [
+    "geekmasher",
+    "alice",
+    "bob",
+    "charlie",
+    "dave",
+    "eve",
+    "frank",
+];
 
 #[derive(Data, Debug, Clone, Default)]
 pub enum UserType {
