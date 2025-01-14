@@ -16,18 +16,29 @@ async fn main() -> Result<()> {
         .await?;
     let connection = db.connect()?;
 
+    log::info!("Initializing database...");
     if let Err(err) = db::init(&connection).await {
         log::error!("Error initializing database...");
         log::error!("{}", err);
         return Err(err.into());
     }
+    log::info!("Database initialized");
 
-    // Create the users
+    log::info!("Creating users...");
     for user in USERS {
-        let mut user = Users::new(user);
-        log::debug!("Creating user: {}", user.username);
-        user.fetch_or_create(&connection).await?;
+        match Users::fetch_by_username(&connection, user).await {
+            Ok(user) => {
+                log::info!(" > User already exists: {}", user.username);
+                continue;
+            }
+            Err(_) => {
+                log::info!(" > Creating user: {}", user);
+                let mut user = Users::new(user, "password");
+                user.fetch_or_create(&connection).await?;
+            }
+        }
     }
+    log::info!("Users created!");
 
     let total = Users::total(&connection).await?;
     debug_assert_eq!(total, USERS.len() as i64);

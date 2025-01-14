@@ -14,12 +14,9 @@ pub struct Users {
     #[geekorm(new = "UserType::User")]
     pub user_type: UserType,
 
-    // #[geekorm(new = "totp_rs::TOTP::default()")]
-    // pub totp: totp_rs::TOTP,
-    // pub email: String,
+    #[geekorm(password, hash_algorithm = "sha512")]
+    pub password: String,
 
-    // #[geekorm(password)]
-    // pub password: String,
     #[geekorm(new = "chrono::Utc::now()")]
     pub created_at: chrono::DateTime<chrono::Utc>,
     //
@@ -64,4 +61,10 @@ pub struct Posts {
 
     #[geekorm(foreign_key = "Users.id")]
     pub user: ForeignKey<i32, Users>,
+
+    #[geekorm(new = "chrono::Utc::now()")]
+    pub created_at: chrono::DateTime<chrono::Utc>,
+
+    #[geekorm(new = "chrono::Utc::now()")]
+    pub updated_at: chrono::DateTime<chrono::Utc>,
 }

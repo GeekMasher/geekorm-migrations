@@ -3,7 +3,8 @@
 use geekorm::prelude::*;
 mod v0_1_0;
 mod v0_1_1;
-pub use v0_1_1::{Database, Migration as LatestMigration};
+mod v0_1_2;
+pub use v0_1_2::{Database, Migration as LatestMigration};
 pub async fn init<'a, T>(connection: &'a T) -> Result<(), geekorm::Error>
 where
     T: geekorm::GeekConnection<Connection = T> + 'a,

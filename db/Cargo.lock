@@ -565,6 +565,7 @@ dependencies = [
  "async-trait",
  "chrono",
  "libsql",
+ "log",
  "password-hash",
  "pbkdf2",
  "proc-macro2",

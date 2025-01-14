@@ -1,10 +1,10 @@
 [package]
 name = "geekorm-testing"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 
 [dependencies]
-geekorm = { path = "../geekorm", features = ["all", "backends", "libsql", "backends-tokio", "migrations", "log"] }
+geekorm = { path = "../geekorm", features = ["all", "backends", "libsql", "backends-tokio", "migrations", "hash-sha512"] }
 
 libsql = "0.6"
 anyhow = { version = "1" }
