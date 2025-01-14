@@ -1,0 +1,55 @@
+use geekorm::prelude::*;
+
+/// Users
+#[derive(Table, Debug, Default, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Users {
+    #[geekorm(primary_key, auto_increment)]
+    pub id: PrimaryKey<i32>,
+
+    #[geekorm(unique)]
+    pub username: String,
+
+    #[geekorm(new = "UserType::User")]
+    pub user_type: UserType,
+
+    // #[geekorm(new = "totp_rs::TOTP::default()")]
+    // pub totp: totp_rs::TOTP,
+    // pub email: String,
+
+    // #[geekorm(password)]
+    // pub password: String,
+    #[geekorm(new = "chrono::Utc::now()")]
+    pub created_at: chrono::DateTime<chrono::Utc>,
+    //
+    // #[geekorm(foreign_key = "Sessions.id")]
+    // #[serde(skip)]
+    // pub sessions: Vec<Sessions>,
+}
+
+#[derive(Data, Debug, Clone, Default)]
+pub enum UserType {
+    Admin,
+    #[default]
+    User,
+}
+
+/// Sessions
+#[derive(Table, Debug, Default, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Sessions {
+    #[geekorm(primary_key, auto_increment)]
+    pub id: PrimaryKey<i32>,
+
+    #[geekorm(rand, rand_length = 42, rand_prefix = "token")]
+    pub token: String,
+}
+
+/// Posts
+#[derive(Table, Debug, Default, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Posts {
+    #[geekorm(primary_key, auto_increment)]
+    pub id: PrimaryKeyInteger,
+    pub title: String,
+
+    #[geekorm(foreign_key = "Users.id")]
+    pub user: ForeignKey<i32, Users>,
+}
