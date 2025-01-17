@@ -19,10 +19,9 @@ pub struct Users {
 
     #[geekorm(new = "chrono::Utc::now()")]
     pub created_at: chrono::DateTime<chrono::Utc>,
-    //
-    // #[geekorm(foreign_key = "Sessions.id")]
-    // #[serde(skip)]
-    // pub sessions: Vec<Sessions>,
+
+    #[geekorm(new = "chrono::Utc::now()")]
+    pub last_login: chrono::DateTime<chrono::Utc>,
 }
 
 pub const USERS: [&str; 7] = [

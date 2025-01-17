@@ -6,5 +6,4 @@ edition = "2024"
 [dependencies]
 geekorm = { path = "../../geekorm", features = ["all", "backends", "libsql", "backends-tokio", "migrations", "log"] }
 log = { version = "^0.4", features = ["std"] }
-lazy_static = "1"
 libsql = "0.6.0"

@@ -448,7 +448,6 @@ name = "db"
 version = "0.1.0"
 dependencies = [
  "geekorm",
- "lazy_static",
  "libsql",
  "log",
 ]
@@ -648,6 +647,7 @@ version = "0.8.4"
 dependencies = [
  "geekorm-core",
  "geekorm-derive",
+ "lazy_static",
 ]
 
 [[package]]
@@ -691,7 +691,7 @@ dependencies = [
 
 [[package]]
 name = "geekorm-testing"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "anyhow",
  "chrono",
