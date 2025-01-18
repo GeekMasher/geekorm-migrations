@@ -551,7 +551,7 @@ dependencies = [
 
 [[package]]
 name = "geekorm"
-version = "0.8.4"
+version = "0.9.0"
 dependencies = [
  "geekorm-core",
  "geekorm-derive",
@@ -560,7 +560,7 @@ dependencies = [
 
 [[package]]
 name = "geekorm-core"
-version = "0.8.4"
+version = "0.9.0"
 dependencies = [
  "async-trait",
  "chrono",
@@ -583,7 +583,7 @@ dependencies = [
 
 [[package]]
 name = "geekorm-derive"
-version = "0.8.4"
+version = "0.9.0"
 dependencies = [
  "chrono",
  "geekorm-core",

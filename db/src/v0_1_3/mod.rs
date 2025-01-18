@@ -1,4 +1,4 @@
-#![doc = "GeekORM Database Migrations - 2025-01-16 20:40:10.792313655 UTC"]
+#![doc = "GeekORM Database Migrations - 2025-01-18 17:48:05.216336751 UTC"]
 #![allow(unused_variables, non_upper_case_globals)]
 use super::v0_1_2 as previous;
 pub struct Migration;
