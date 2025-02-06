@@ -1,0 +1,179 @@
+{
+  "tables": [
+    {
+      "name": "Users",
+      "columns": {
+        "columns": [
+          {
+            "name": "id",
+            "column_type": {
+              "Identifier": {
+                "primary_key": true,
+                "foreign_key": "",
+                "unique": false,
+                "not_null": false,
+                "auto_increment": true
+              }
+            },
+            "alias": "",
+            "skip": false
+          },
+          {
+            "name": "username",
+            "column_type": {
+              "Text": {
+                "primary_key": false,
+                "foreign_key": "",
+                "unique": true,
+                "not_null": true,
+                "auto_increment": false
+              }
+            },
+            "alias": "",
+            "skip": false
+          },
+          {
+            "name": "password",
+            "column_type": {
+              "Text": {
+                "primary_key": false,
+                "foreign_key": "",
+                "unique": false,
+                "not_null": true,
+                "auto_increment": false
+              }
+            },
+            "alias": "",
+            "skip": false
+          },
+          {
+            "name": "created_at",
+            "column_type": {
+              "Text": {
+                "primary_key": false,
+                "foreign_key": "",
+                "unique": false,
+                "not_null": true,
+                "auto_increment": false
+              }
+            },
+            "alias": "",
+            "skip": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sessions",
+      "columns": {
+        "columns": [
+          {
+            "name": "id",
+            "column_type": {
+              "Identifier": {
+                "primary_key": true,
+                "foreign_key": "",
+                "unique": false,
+                "not_null": false,
+                "auto_increment": true
+              }
+            },
+            "alias": "",
+            "skip": false
+          },
+          {
+            "name": "token",
+            "column_type": {
+              "Text": {
+                "primary_key": false,
+                "foreign_key": "",
+                "unique": false,
+                "not_null": true,
+                "auto_increment": false
+              }
+            },
+            "alias": "",
+            "skip": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Posts",
+      "columns": {
+        "columns": [
+          {
+            "name": "id",
+            "column_type": {
+              "Identifier": {
+                "primary_key": true,
+                "foreign_key": "",
+                "unique": false,
+                "not_null": false,
+                "auto_increment": true
+              }
+            },
+            "alias": "",
+            "skip": false
+          },
+          {
+            "name": "title",
+            "column_type": {
+              "Text": {
+                "primary_key": false,
+                "foreign_key": "",
+                "unique": false,
+                "not_null": true,
+                "auto_increment": false
+              }
+            },
+            "alias": "",
+            "skip": false
+          },
+          {
+            "name": "user",
+            "column_type": {
+              "ForeignKey": {
+                "primary_key": false,
+                "foreign_key": "Users.id",
+                "unique": false,
+                "not_null": true,
+                "auto_increment": false
+              }
+            },
+            "alias": "",
+            "skip": false
+          },
+          {
+            "name": "created_at",
+            "column_type": {
+              "Text": {
+                "primary_key": false,
+                "foreign_key": "",
+                "unique": false,
+                "not_null": true,
+                "auto_increment": false
+              }
+            },
+            "alias": "",
+            "skip": false
+          },
+          {
+            "name": "updated_at",
+            "column_type": {
+              "Text": {
+                "primary_key": false,
+                "foreign_key": "",
+                "unique": false,
+                "not_null": true,
+                "auto_increment": false
+              }
+            },
+            "alias": "",
+            "skip": false
+          }
+        ]
+      }
+    }
+  ]
+}

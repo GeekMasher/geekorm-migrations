@@ -1,6 +1,3 @@
 mode: crate
 name: db
 database: sqlite
-drivers:
-- libsql
-geekorm: ../geekorm

@@ -9,19 +9,17 @@ pub struct Users {
     #[geekorm(unique)]
     pub username: String,
 
-    pub email: Option<String>,
+    // pub email: Option<String>,
 
-    #[geekorm(new = "UserType::User")]
-    pub user_type: UserType,
-
+    // #[geekorm(new = "UserType::User")]
+    // pub user_type: UserType,
     #[geekorm(password, hash_algorithm = "sha512")]
     pub password: String,
 
     #[geekorm(new = "chrono::Utc::now()")]
     pub created_at: chrono::DateTime<chrono::Utc>,
-
-    #[geekorm(new = "chrono::Utc::now()")]
-    pub last_login: chrono::DateTime<chrono::Utc>,
+    // #[geekorm(new = "chrono::Utc::now()")]
+    // pub last_login: chrono::DateTime<chrono::Utc>,
 }
 
 pub const USERS: [&str; 7] = [
