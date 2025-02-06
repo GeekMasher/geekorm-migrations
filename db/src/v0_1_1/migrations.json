@@ -1,0 +1,8 @@
+[
+  {
+    "mode": "AddColumn",
+    "table": "Users",
+    "column": "email",
+    "rename": null
+  }
+]
