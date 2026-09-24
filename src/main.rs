@@ -1,7 +1,7 @@
 use anyhow::Result;
-use geekorm::GeekConnector;
+use geekorm::{ConnectionManager, GeekConnector};
 
-use models::{Users, USERS};
+use models::{USERS, Users};
 
 mod cli;
 mod models;
@@ -11,10 +11,8 @@ async fn main() -> Result<()> {
     cli::init()?;
 
     // Initialize a database in a file
-    let db = libsql::Builder::new_local("/tmp/geekorm.db")
-        .build()
-        .await?;
-    let connection = db.connect()?;
+    let db = ConnectionManager::path("/tmp/geekorm-migration.sqlite").await?;
+    let connection = db.acquire().await;
 
     log::info!("Initializing database...");
     if let Err(err) = db::init(&connection).await {

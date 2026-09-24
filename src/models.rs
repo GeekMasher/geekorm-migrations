@@ -9,10 +9,11 @@ pub struct Users {
     #[geekorm(unique)]
     pub username: String,
 
-    // pub email: Option<String>,
+    pub email: Option<String>,
 
-    // #[geekorm(new = "UserType::User")]
-    // pub user_type: UserType,
+    #[geekorm(new = "UserType::User")]
+    pub user_type: UserType,
+
     #[geekorm(password, hash_algorithm = "sha512")]
     pub password: String,
 

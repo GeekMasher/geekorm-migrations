@@ -1,0 +1,8 @@
+[
+  {
+    "mode": "AddColumn",
+    "table": "Users",
+    "column": "user_type",
+    "rename": null
+  }
+]

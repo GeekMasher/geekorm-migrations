@@ -1,12 +1,12 @@
 [package]
-name = "geekorm-testing"
-version = "0.1.0"
-edition = "2021"
+name = "geekorm-migrations"
+version = "0.2.0"
+edition = "2024"
 
 [dependencies]
-geekorm = { path = "../geekorm", features = ["all", "backends", "libsql", "backends-tokio", "migrations", "hash-sha512"] }
+geekorm = { path = "../geekorm", features = ["all", "backends", "rusqlite", "backends-tokio", "migrations", "hash-sha512"] }
 
-libsql = "0.6"
+rusqlite = "0.40"
 anyhow = { version = "1" }
 tokio = { version = "1", features = ["full"] }
 serde = { version = "1", features = ["derive"] }
